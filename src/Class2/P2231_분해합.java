@@ -2,7 +2,7 @@ package Class2;
 
 import java.util.Scanner;
 
-public class P2331_분해합 {
+public class P2231_분해합 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int N = sc.nextInt();

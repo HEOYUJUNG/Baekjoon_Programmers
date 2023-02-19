@@ -1,3 +1,5 @@
+// 정답님아님
+
 package Class2;
 
 import java.util.Arrays;

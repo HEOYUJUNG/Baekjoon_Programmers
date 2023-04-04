@@ -1,27 +1,25 @@
+package Class3;
+
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class P1764_듣보잡 {
 	public static void main(String[] args) throws IOException {
-//		Scanner sc = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 		StringBuilder sb = new StringBuilder();
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st = new StringTokenizer(br.readLine());
-//		int N = sc.nextInt();
-//		int M = sc.nextInt();
-		int N = Integer.parseInt(st.nextToken());
-		int M = Integer.parseInt(st.nextToken());
+
+		int N = sc.nextInt();
+		int M = sc.nextInt();
+
 		int cnt = 0;
 		HashSet<String> hs = new HashSet<>();
 		List<String> result = new ArrayList<>();
 
 		for (int i = 0; i < N; i++) {
-//			map1.put(i, sc.next());
-			hs.add(br.readLine());
+			hs.add(sc.next());
 		}
 		for (int i = 0; i < M; i++) {
-			String input = br.readLine();
-//			String input = sc.next();
+			String input = sc.next();
 			if (hs.contains(input)) {
 				cnt++;
 				result.add(input);

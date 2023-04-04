@@ -1,0 +1,45 @@
+package Class3;
+
+import java.util.*;
+
+public class P11723_집합_비트마스킹 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		StringBuilder sb = new StringBuilder();
+		int M = sc.nextInt(); // 연산 개수
+		int S = 0; // 공집합
+
+		for (int i = 0; i < M; i++) {
+			String cmd = sc.next();
+			switch (cmd) {
+			case "add":
+				int x = sc.nextInt();
+				S = S | (1 << x); // x 추가
+				break;
+			case "remove":
+				x = sc.nextInt();
+				S = S & ~(1 << x); // x 제거
+				break;
+			case "check":
+				x = sc.nextInt();
+				if ((S & (1 << x)) > 0) { // x 있으면
+					sb.append(1 + "\n");
+				} else { // x 없으면
+					sb.append(0 + "\n");
+				}
+				break;
+			case "toggle":
+				x = sc.nextInt();
+				S = S ^ (1 << x);
+				break;
+			case "all":
+				S = (1 << 22) - 1;
+				break;
+			default: // empty일 때
+				S = 0;
+				break;
+			}
+		}
+		System.out.println(sb);
+	}
+}

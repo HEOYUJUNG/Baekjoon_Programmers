@@ -1,0 +1,43 @@
+package Class3;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Scanner;
+
+public class P1764_듣보잡_hashset {
+	public static void main(String[] args) throws IOException {
+		Scanner sc = new Scanner(System.in);
+		StringBuilder sb = new StringBuilder();
+
+		int N = sc.nextInt(); // 듣도 못한 사람 수
+		int M = sc.nextInt(); // 보도 못한 사람 수
+
+		int cnt = 0;
+		HashMap<String, Integer> hm = new HashMap<>();
+		List<String> result = new ArrayList<>();
+
+		// 듣도 못한 사람들 hashset에 추가해주기
+		for (int i = 0; i < N; i++) {
+			hm.put(sc.next(), 1);
+		}
+
+		// 보도 못한 사람 입력 받으면서
+		for (int i = 0; i < M; i++) {
+			String input = sc.next();
+			if (hm.containsKey(input)) { // 듣도 못한 사람 중에 포함되어 있다면
+				cnt++; // 카운트하고
+				result.add(input); // 결과 리스트에 넣어주기
+			}
+		}
+
+		Collections.sort(result); // 사전순 정렬
+		sb.append(cnt + "\n");
+		for (int i = 0; i < result.size(); i++) {
+			sb.append(result.get(i) + "\n");
+		}
+		System.out.println(sb);
+	}
+}

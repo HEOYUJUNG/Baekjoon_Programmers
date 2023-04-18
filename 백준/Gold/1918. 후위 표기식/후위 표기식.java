@@ -25,16 +25,14 @@ public class Main {
 				if (st.isEmpty()) {
 					st.add(curr);
 				} else if (curr != ')') { // 2. 스택 비어있지 않은데 ) 외의 연산자들인 경우
-					if (inStPriority(st.peek()) < outStPriority(curr)) {
-						// 2-1. top 우선순위가 나보다 작으면 넣기
-						st.add(curr);
-					} else {
-						// 2-2. top 우선순위가 나보다 같거나 크면, 작아질때까지 빼기 (같아도 안됨. 앞에 있는게 먼저 나와야 하니까.)
+					// 2-1. top 우선순위가 나보다 같거나 크면, 작아질때까지 빼기 (같아도 안됨. 앞에 있는게 먼저 나와야 하니까.)
+					if (inStPriority(st.peek()) >= outStPriority(curr)) {
 						while (!st.isEmpty() && inStPriority(st.peek()) >= outStPriority(curr)) {
 							sb.append(st.pop());
 						}
-						st.add(curr);
 					}
+					// 2-2. top 우선순위가 나보다 작으면 그냥 넣기
+					st.add(curr);
 				} else { // 스택 비어있지 않은데 )인 경우
 					// ( 만날 때까지 스택에서 빼서 결과로 내보내기
 					while (st.peek() != '(') {

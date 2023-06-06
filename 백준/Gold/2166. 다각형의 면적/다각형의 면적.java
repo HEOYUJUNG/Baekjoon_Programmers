@@ -18,12 +18,12 @@ public class Main {
 		vertex[N][0] = vertex[0][0];
 		vertex[N][1] = vertex[0][1];
 
-		long sum1 = 0L;
-		long sum2 = 0L;
+		long sum1 = 0;
+		long sum2 = 0;
 		for (int i = 0; i < N; i++) {
 			sum1 += vertex[i][0] * vertex[i + 1][1];
 			sum2 += vertex[i][1] * vertex[i + 1][0];
 		}
-		System.out.println(String.format("%.1f", Math.abs(sum1 - sum2) / 2D));
+		System.out.println(String.format("%.1f", Math.abs(sum1 - sum2) / 2.0));
 	}
 }

@@ -40,19 +40,16 @@ public class Main {
 		}
 
 		// dp[r][c] = 1~r번째 그룹까지 있을 때, c명의 사탕을 뺏어서 얻을 수 있는 최대 사탕 개수
-		int[][] dp = new int[groups.size() + 1][K];
-		for (int r = 1; r <= groups.size(); r++) {
-			for (int c = 1; c < K; c++) {
-				Group g = groups.get(r - 1);
+		int[] dp = new int[K];
+		for (int r = 0; r < groups.size(); r++) {
+			Group g = groups.get(r);
+			for (int c = K - 1; c >= g.people; c--) {
 				// 1. c번째 그룹 포함하지 않는 경우
-				dp[r][c] = dp[r - 1][c];
 				// 2. c번째 그룹 포함하는 경우
-				if (c >= g.people) {
-					dp[r][c] = Math.max(dp[r][c], dp[r - 1][c - g.people] + g.candy);
-				}
+				dp[c] = Math.max(dp[c], dp[c - g.people] + g.candy);
 			}
 		}
-		System.out.println(dp[groups.size()][K - 1]);
+		System.out.println(dp[K - 1]);
 	}
 
 	static class Group {

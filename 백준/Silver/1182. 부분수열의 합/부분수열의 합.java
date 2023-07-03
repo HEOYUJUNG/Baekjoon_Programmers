@@ -8,11 +8,11 @@ public class Main {
 		int N = Integer.parseInt(st.nextToken()); // 정수 개수
 		int S = Integer.parseInt(st.nextToken()); // 합이 S인 부분수열 개수 구하기
 		int[] arr = new int[N];
-		Arrays.sort(arr);
 		st = new StringTokenizer(br.readLine());
 		for (int i = 0; i < N; i++) {
 			arr[i] = Integer.parseInt(st.nextToken());
 		}
+		// 비트마스킹으로 부분순열 구하기
 		int cnt = 0;
 		for (int i = 1; i < (1 << N); i++) { // 부분집합 i (크기가 양수이니까 0 제외)
 			int sum = 0; // 부분집합 i에 포함되는 원소들의 합
